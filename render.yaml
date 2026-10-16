@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: xiaomiqian-dai-couple
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: XMQ_DATA_DIR
+        value: /var/data
+    disk:
+      name: xmq-data
+      mountPath: /var/data
+      sizeGB: 1
